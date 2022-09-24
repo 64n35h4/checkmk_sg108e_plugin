@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo '<<<<HOSTNAME>>>>'
+echo '<<<tp_link>>>'
+commandOutput="$(python3 tp_link.py SWITCH_IP USERNAME PASSWORD)"
+
+readarray -d : -t strarr <<< "$commandOutput"
+
+for (( n=0; n < ${#strarr[*]}; n++))
+do
+  echo "${strarr[n]}"
+done
